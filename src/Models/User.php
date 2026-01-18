@@ -31,18 +31,18 @@ class User
         return $this->role ;
     }
     
-     public function setId(){
+     public function setId($id){
            $this->id = $id;
     }
 
-     public function setEmail(){
+     public function setEmail($email){
        $this->email = $email;
     }
 
-     public function setPassword(){
+     public function setPassword($password){
         $this->password = $password;
     }
-     public function setRole(){
+     public function setRole($role){
        $this->role = $role;
     }
      

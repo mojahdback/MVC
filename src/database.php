@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 class Database
 {
     private static $instance = null;
@@ -23,4 +25,4 @@ class Database
     }
 }
 
-echo "ok";
+

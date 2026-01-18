@@ -1,3 +1,4 @@
+php -S localhost:8080 -t public/
 # 🔐 TalentHub – Système d’Authentification MVC (Sans Framework)
 
 ## 📌 Description du projet
