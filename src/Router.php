@@ -15,7 +15,7 @@ class Router
         $this->registerRoutes();
     }
 
-    private function registerRoutes(): void
+    public function registerRoutes(): void
     {
         $this->add('GET', '/', AuthController::class, 'home');
         $this->add('GET', '/login', AuthController::class, 'showLogin');
@@ -29,7 +29,7 @@ class Router
         $this->add('GET', '/admin/dashboard', AdminController::class, 'dashboard', 'admin');
     }
 
-     private function add(
+     public function add(
         string $method,
         string $path,
         string $controller,

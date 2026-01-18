@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Models;
 class User
 {
         public int $id;
@@ -45,6 +46,8 @@ class User
      public function setRole($role){
        $this->role = $role;
     }
+
+    
      
     
 }

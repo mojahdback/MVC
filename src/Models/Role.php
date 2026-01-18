@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 class Role
 {
     private $id;
@@ -11,12 +13,12 @@ class Role
     
     }
 
-    public function getId(){
+    public function getId(): int{
         return $this->id;
         
     } 
 
-    public function getName(){
+    public function getName():string{
        return  $this->name;
     } 
 

@@ -16,9 +16,7 @@ class AuthService
         $this->roleRepo = new RoleRepository();
     }
 
-    /**
-     * تسجيل الدخول
-     */
+ 
     public function login(string $email, string $password): ?array
     {
         $user = $this->userRepo->findByEmail($email);
@@ -70,16 +68,11 @@ class AuthService
 
         $hashedPassword = password_hash($data['password'], PASSWORD_DEFAULT);
 
-     
-        $this->userRepo->create([
-
-            'email' => $data['email'],
-            'password' => $hashedPassword,
-            'role_id' => $role['id']
-
-        ]);
-
-
+         $this->userRepo->create(
+        $data['email'],
+        $hashedPassword,
+        $role['id']
+         );
         return true;
     }
 }

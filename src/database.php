@@ -2,27 +2,32 @@
 
 namespace App;
 
+use PDO;
+use PDOException;
+
 class Database
 {
-    private static $instance = null;
+    private static ?PDO $connection = null;
 
-    public static function getConnection()
+
+    public static function getConnection(): PDO
     {
-        if (self::$instance === null) {
-            $config = require __DIR__ . '/../config/database.php';
+        if (self::$connection === null) {
+            $host = 'localhost';
+            $dbname = 'talenthub';
+            $user = 'root';
+            $pass = '';
 
-            self::$instance = new PDO(
-                "mysql:host={$config['host']};dbname={$config['dbname']};charset=utf8",
-                $config['user'],
-                $config['password'],
-                [
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-                ]
-            );
+            $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
+
+            try {
+                self::$connection = new PDO($dsn, $user, $pass);
+                self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                die("Database connection failed: " . $e->getMessage());
+            }
         }
 
-        return self::$instance;
+        return self::$connection;
     }
 }
-
-
